@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Application applicationName="Interceptor Example"
+	xmlns="http://jlcf.sourceforge.net/JLCFApplication" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<component implementationClass="org.jlcf.example.remoting.ComponentA"
+		name="compA">
+		<interface name="userinterface" type="org.jlcf.example.remoting.IComponentA" />
+		<receptacle name="remoteCompProxy">
+			<Reference path="remoteProxy/remoteinterface" />
+		</receptacle>
+
+	</component>
+
+	<component implementationClass="org.jlcf.example.remoting.RemoteProxyComponent"
+		name="remoteProxy">
+		<interface name="remoteinterface"
+			type="org.jlcf.example.remoting.IRemoteProxyComponent" />
+	</component>
+
+</Application>

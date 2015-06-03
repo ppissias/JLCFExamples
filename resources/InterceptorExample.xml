@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Application applicationName="Interceptor Example"
+	xmlns="http://jlcf.sourceforge.net/JLCFApplication" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<component implementationClass="org.jlcf.example.interceptors.ComponentA"
+		name="compA">
+
+		<interface name="userinterface" type="org.jlcf.example.interceptors.IComponentA" />
+
+		<receptacle name="compoB">
+			<Reference path="compB/compbintf" />
+			<Interceptor name="compbinterc"
+				type="org.jlcf.example.interceptors.StringCaseInterceptor" />
+		</receptacle>
+
+		<property name="version" value="1.01" />
+	</component>
+
+
+	<component implementationClass="org.jlcf.example.interceptors.ComponentB"
+		name="compB">
+		<interface name="compbintf" type="org.jlcf.example.interceptors.IComponentB" />
+	</component>
+
+</Application>

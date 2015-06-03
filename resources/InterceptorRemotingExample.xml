@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Application applicationName="Interceptor Example"
+	xmlns="http://jlcf.sourceforge.net/JLCFApplication" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<component implementationClass="org.jlcf.example.interceptors.remoting.ComponentA"
+		name="compA">
+
+		<interface name="userinterface"
+			type="org.jlcf.example.interceptors.remoting.IComponentA" />
+
+		<receptacle name="remote">
+			<Reference path=""
+				type="org.jlcf.example.interceptors.remoting.IExternalInterface" />
+			<Interceptor name="compbinterc"
+				type="org.jlcf.example.interceptors.remoting.RemotingInterceptor" />
+		</receptacle>
+
+		<property name="version" value="1.01" />
+	</component>
+
+
+</Application>
