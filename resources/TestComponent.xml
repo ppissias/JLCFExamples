@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Application applicationName="Test"
+	xmlns="http://jlcf.sourceforge.net/JLCFApplication" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<component implementationClass="org.jlcf.example.calculator.NumberCalculator"
+		name="NumberCalculator">
+		<interface name="INumberCalculator"
+			type="org.jlcf.example.calculator.INumberCalculator" />
+		<receptacle name="addition">
+			<Reference path="additionComponent/addition" type="org.jlcf.example.calculator.IAddition" />
+			<Interceptor name="additionInterceptor1"
+				type="org.jlcf.example.calculator.AdditionInterceptor" />
+			<Interceptor name="additionInterceptor2"
+				type="org.jlcf.example.calculator.GenericCallLogger" />
+		</receptacle>
+		<receptacle name="multiplication">
+			<Reference path="multiplicationComponent/multiplication"
+				type="org.jlcf.example.calculator.IMultiplication" />
+		</receptacle>
+		<receptacle name="subtraction">
+			<Reference path="subtractionComponent/subtraction" type="org.jlcf.example.calculator.ISubtraction" />
+		</receptacle>
+		<receptacle name="division">
+			<Reference path="divisionComponent/division" type="org.jlcf.example.calculator.IDivision" />
+		</receptacle>
+		<receptacle name="battery">
+			<Reference path="" type="org.jlcf.example.calculator.IBattery" />
+		</receptacle>
+		<property name="prop1" value="value1" />
+
+	</component>
+
+
+
+</Application>

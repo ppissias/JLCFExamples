@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Application applicationName="Hello World Example"
+	xmlns="http://jlcf.sourceforge.net/JLCFApplication" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<component implementationClass="org.jlcf.example.helloworld.ComponentA"
+		name="compA">
+
+		<interface name="userinterface" type="org.jlcf.example.helloworld.IComponentA" />
+
+		<receptacle name="compoB">
+			<Reference path="compB/compbintf" />
+		</receptacle>
+
+		<property name="version" value="1.01" />
+	</component>
+
+
+	<component implementationClass="org.jlcf.example.helloworld.ComponentB"
+		name="compB">
+		<interface name="compbintf" type="org.jlcf.example.helloworld.IComponentB" />
+	</component>
+
+</Application>

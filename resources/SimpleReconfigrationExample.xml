@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Application applicationName="Test"
+	xmlns="http://jlcf.sourceforge.net/JLCFApplication" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<component implementationClass="org.jlcf.example.reconfiguration.ComponentA"
+		name="compA">
+		<interface name="callback"
+			type="org.jlcf.example.reconfiguration.ITestCallback" />
+		<interface name="userinterface"
+			type="org.jlcf.example.reconfiguration.IComponentA" />
+		<receptacle name="compoB">
+			<Reference path="compB/compbintf" callbackReference="compA/callback" />
+		</receptacle>
+
+		<property name="version" value="1.01" />
+	</component>
+
+
+	<component implementationClass="org.jlcf.example.reconfiguration.ComponentB"
+		name="compB">
+		<interface name="compbintf"
+			type="org.jlcf.example.reconfiguration.IComponentB" />
+	</component>
+
+</Application>

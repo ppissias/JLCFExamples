@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Application applicationName="Test"
+	xmlns="http://jlcf.sourceforge.net/JLCFApplication" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<component implementationClass="org.jlcf.example.calculator.BatteryManager"
+		name="batteryManager">
+		<interface name="battery" type="org.jlcf.example.calculator.IBattery" />
+	</component>
+
+	<component implementationClass="org.jlcf.example.calculator.NumberCalculator"
+		name="NumberCalculator">
+		<interface name="INumberCalculator"
+			type="org.jlcf.example.calculator.INumberCalculator" />
+		<interface name="IBatteryUpdate"
+			type="org.jlcf.example.calculator.IBatteryEventCallback" />
+		<receptacle name="addition">
+			<Reference path="additionComponent/addition" type="org.jlcf.example.calculator.IAddition" />
+			<Interceptor name="additionInterceptor1"
+				type="org.jlcf.example.calculator.AdditionInterceptor" />
+			<Interceptor name="additionInterceptor2"
+				type="org.jlcf.example.calculator.GenericCallLogger" />
+		</receptacle>
+		<receptacle name="multiplication">
+			<Reference path="multiplicationComponent/multiplication"
+				type="org.jlcf.example.calculator.IMultiplication" />
+		</receptacle>
+		<receptacle name="subtraction">
+			<Reference path="subtractionComponent/subtraction" type="org.jlcf.example.calculator.ISubtraction" />
+		</receptacle>
+		<receptacle name="division">
+			<Reference path="divisionComponent/division" type="org.jlcf.example.calculator.IDivision" />
+		</receptacle>
+		<receptacle name="battery">
+			<Reference path="batteryManager/battery" type="org.jlcf.example.calculator.IBattery"
+				callbackReference="NumberCalculator/IBatteryUpdate" />
+		</receptacle>
+		<property name="version" value="1.01" />
+	</component>
+
+
+	<component implementationClass="org.jlcf.example.calculator.AdditionComponent"
+		name="additionComponent">
+		<interface name="addition" type="org.jlcf.example.calculator.IAddition" />
+	</component>
+
+
+	<component implementationClass="org.jlcf.example.calculator.SubtractionComponent"
+		name="subtractionComponent">
+		<interface name="subtraction" type="org.jlcf.example.calculator.ISubtraction" />
+	</component>
+
+
+	<component implementationClass="org.jlcf.example.calculator.AdditionComponent"
+		name="multiplicationComponent">
+		<interface name="multiplication"
+			type="org.jlcf.example.calculator.IMultiplication" />
+	</component>
+
+
+	<component implementationClass="org.jlcf.example.calculator.DivisionComponent"
+		name="divisionComponent">
+		<interface name="division" type="org.jlcf.example.calculator.IDivision" />
+	</component>
+
+
+
+
+	<component implementationClass="org.jlcf.example.calculator.CalculatorUser"
+		name="calcUser">
+		<receptacle name="calculator">
+			<Reference path="NumberCalculator/INumberCalculator"
+				type="org.jlcf.example.calculator.INumberCalculator" />
+		</receptacle>
+	</component>
+</Application>

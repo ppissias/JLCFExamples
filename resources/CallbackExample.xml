@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Application applicationName="Callback Example"
+	xmlns="http://jlcf.sourceforge.net/JLCFApplication" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<component implementationClass="org.jlcf.example.callbacks.ComponentA"
+		name="compA">
+
+		<interface name="callback" type="org.jlcf.example.callbacks.ITestCallback" />
+		<interface name="userinterface" type="org.jlcf.example.callbacks.IComponentA" />
+
+		<receptacle name="compoB">
+			<Reference path="compB/compbintf" callbackReference="compA/callback" />
+		</receptacle>
+
+		<property name="version" value="1.01" />
+	</component>
+
+
+	<component implementationClass="org.jlcf.example.callbacks.ComponentB"
+		name="compB">
+		<interface name="compbintf" type="org.jlcf.example.callbacks.IComponentB" />
+	</component>
+
+</Application>

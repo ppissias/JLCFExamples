@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Application applicationName="CalculatorExample"
+	xmlns="http://jlcf.sourceforge.net/JLCFApplication" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+
+	<component implementationClass="org.jlcf.example.simplecalculator.NumberCalculator"
+		name="NumberCalculator">
+		<interface name="INumberCalculator"
+			type="org.jlcf.example.simplecalculator.INumberCalculator" />
+
+		<receptacle name="addition">
+			<Reference path="additionComponent/addition" />
+		</receptacle>
+		<receptacle name="multiplication">
+			<Reference path="multiplicationComponent/multiplication" />
+		</receptacle>
+		<receptacle name="subtraction">
+			<Reference path="subtractionComponent/subtraction" />
+		</receptacle>
+		<receptacle name="division">
+			<Reference path="divisionComponent/division" />
+		</receptacle>
+		<property name="version" value="1.01" />
+	</component>
+
+
+	<component implementationClass="org.jlcf.example.simplecalculator.AdditionComponent"
+		name="additionComponent">
+		<interface name="addition"
+			type="org.jlcf.example.simplecalculator.IAddition" />
+	</component>
+
+
+	<component implementationClass="org.jlcf.example.simplecalculator.SubtractionComponent"
+		name="subtractionComponent">
+		<interface name="subtraction"
+			type="org.jlcf.example.simplecalculator.ISubtraction" />
+	</component>
+
+
+	<component implementationClass="org.jlcf.example.simplecalculator.AdditionComponent"
+		name="multiplicationComponent">
+		<interface name="multiplication"
+			type="org.jlcf.example.simplecalculator.IMultiplication" />
+	</component>
+
+
+	<component implementationClass="org.jlcf.example.simplecalculator.DivisionComponent"
+		name="divisionComponent">
+		<interface name="division"
+			type="org.jlcf.example.simplecalculator.IDivision" />
+	</component>
+
+</Application>

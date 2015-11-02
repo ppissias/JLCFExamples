@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." default="main" name="JLCF Examples">
+
+	<!-- runtime classpath -->
+
+	<path id="dependencyClasspath.jar">
+		<fileset dir="ext_lib">
+			<include name="**/*.jar" />
+		</fileset>
+		<fileset dir="dist">
+			<include name="**/*.jar" />
+		</fileset>		
+	</path>
+
+
+	<target name="main" description="Launch JLCF DEMO">
+		<echo message="JLCF Examples - Simple Calculator" />
+		<java classname="org.jlcf.example.simplecalculator.SimpleCalculatorExample"
+			failonerror="true" fork="true">
+			<classpath>
+				<path refid="dependencyClasspath.jar" />
+			</classpath>
+		</java>
+	</target>
+
+	<target name="advancedcalculator" description="Launch JLCF DEMO - advancedcalculator">
+		<echo message="JLCF Examples - advancedcalculator" />
+		<java classname="org.jlcf.example.advancedcalculator.AdvancedCalculatorExample"
+			failonerror="true" fork="true">
+			<classpath>
+				<path refid="dependencyClasspath.jar" />
+			</classpath>
+		</java>
+	</target>
+
+	<target name="simplecallback" description="Launch JLCF DEMO simplecallback">
+		<echo message="JLCF Examples - simplecallback" />
+		<java classname="org.jlcf.example.callbacks.CallbackExample"
+			failonerror="true" fork="true">
+			<classpath>
+				<path refid="dependencyClasspath.jar" />
+			</classpath>
+		</java>
+	</target>
+
+
+	<target name="advancedcallback" description="Launch JLCF DEMO advancedcallback">
+		<echo message="JLCF Examples - advancedcallback" />
+		<java classname="org.jlcf.example.callbacks.AdvancedCallbackExample"
+			failonerror="true" fork="true">
+			<classpath>
+				<path refid="dependencyClasspath.jar" />
+			</classpath>
+		</java>
+	</target>
+
+	<target name="interceptors" description="Launch JLCF DEMO interceptors">
+		<echo message="JLCF Examples - interceptors" />
+		<java classname="org.jlcf.example.interceptors.InterceptorExample"
+			failonerror="true" fork="true">
+			<classpath>
+				<path refid="dependencyClasspath.jar" />
+			</classpath>
+		</java>
+	</target>
+
+	<target name="remotinginterceptor"  description="Launch JLCF DEMO remotinginterceptor">
+		<echo message="JLCF Examples - remotinginterceptor" />
+		<parallel>
+		  <sequential>
+			<java classname="org.jlcf.example.interceptors.remoting.RemoteWSStarter"
+				failonerror="true" fork="true">
+				<classpath>
+					<path refid="dependencyClasspath.jar" />
+				</classpath>
+			</java>
+		  </sequential>
+		  <sequential>
+		    <sleep seconds="10"/>
+			<java
+				classname="org.jlcf.example.interceptors.remoting.InterceptorRemotingExample"
+				failonerror="true" fork="true">
+				<classpath>
+					<path refid="dependencyClasspath.jar" />
+				</classpath>
+			</java>
+		  </sequential>
+		</parallel>
+
+	</target>
+
+	<target name="remoteWS" description="Launch JLCF DEMO remoteWS">
+		<echo message="JLCF Examples - remoteWS" />
+
+		<java classname="org.jlcf.example.interceptors.remoting.RemoteWSStarter"
+			failonerror="true" fork="true">
+			<classpath>
+				<path refid="dependencyClasspath.jar" />
+			</classpath>
+		</java>
+	</target>
+
+	<target name="reconfiguration" description="Launch JLCF DEMO reconfiguration">
+		<echo message="JLCF Examples - reconfiguration" />
+		<java classname="org.jlcf.example.reconfiguration.SimpleReconfigurationExample"
+			failonerror="true" fork="true">
+			<classpath>
+				<path refid="dependencyClasspath.jar" />
+			</classpath>
+		</java>
+	</target>
+
+
+	<target name="remoting" description="Launch JLCF DEMO remoting">
+		<echo message="JLCF Examples - remoting" />
+		<parallel>
+		  <sequential>
+			<java classname="org.jlcf.example.interceptors.remoting.RemoteWSStarter"
+				failonerror="true" fork="true">
+				<classpath>
+					<path refid="dependencyClasspath.jar" />
+				</classpath>
+			</java>
+		  </sequential>
+		  <sequential>
+		    <sleep seconds="10"/>
+			<java classname="org.jlcf.example.remoting.SimpleRemotingExample"
+				failonerror="true" fork="true">
+				<classpath>
+					<path refid="dependencyClasspath.jar" />
+				</classpath>
+			</java>
+		  </sequential>
+		</parallel>
+
+	</target>
+</project>
