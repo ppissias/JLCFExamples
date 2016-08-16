@@ -30,6 +30,4 @@ public class TestExample {
 		IJLCFContainer runtime = JLCFContainer.getInstance();
 		runtime.loadApplication("resources/ExampleTest.xml");
 	}
-
-
 }
