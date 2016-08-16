@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Application applicationName="Test Example"
+	xmlns="http://jlcf.sourceforge.net/JLCFApplication" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<component implementationClass="example.ComponentA" name="compA">
+		<interface name="processData" type="example.IDataProcessor" />
+	</component>
+
+
+	<component implementationClass="example.ComponentB" name="compB">	
+		<receptacle name="dataProcessor">
+			<Reference path="compA/processData"/>
+		</receptacle>
+	</component>
+
+</Application>
