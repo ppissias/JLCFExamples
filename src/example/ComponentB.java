@@ -54,6 +54,6 @@ public class ComponentB {
 				boolean ret = dataProcessor.processData(randomData);
 				System.out.println("ComponentB: Data processing reply:"+ret);
 			}
-		}, 5000);
+		}, 0, 5000);
 	}
 }
